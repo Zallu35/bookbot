@@ -3,7 +3,11 @@ def get_book_text(filepath):
         return f.read()
 
 def main():
-    wall = get_book_text("books/frankenstein.txt")
-    print(wall)
+    wall = count_words(get_book_text("books/frankenstein.txt"))
+    letter_count = count_characters(get_book_text("books/frankenstein.txt"))
+    print(f"{wall} words found in the document")
+    print(letter_count)
+
+from stats import count_words, count_characters
 
 main()
