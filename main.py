@@ -1,13 +1,18 @@
+import sys
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
 def get_book_text(filepath):
     with open(filepath) as f:
         return f.read()
 
 def main():
-    wall = count_words(get_book_text("books/frankenstein.txt"))
-    letter_count = count_characters(get_book_text("books/frankenstein.txt"))
+    wall = count_words(get_book_text(sys.argv[1]))
+    letter_count = count_characters(get_book_text(sys.argv[1]))
     letter_list = sorting(letter_count)
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {sys.argv[1]}...")
     print("----------- Word Count ----------")
     print(f"Found {wall} total words")
     print("--------- Character Count -------")
